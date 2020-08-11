@@ -14,12 +14,12 @@
 
 <body style="margin: 0px; overflow: hidden;">
     <a-scene arjs="debugUIEnabled: false; sourceType: webcam;" embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene">
-        <a-assets>
+        <!-- <a-assets>
             <a-asset-item id="house" src="/models/housev3.gltf"></a-asset-item>
-        </a-assets>
+        </a-assets> -->
 
         <a-marker preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="hiroMarker">
-            <a-entity id="house-model" gltf-model="#house" position="0 0 0" scale="0.05 0.05 0.05" class="clickable" gesture-handler></a-entity>
+            <a-entity id="house-model" gltf-model="url(./models/housev3.gltf)" position="0 0 0" scale="0.05 0.05 0.05" class="clickable" gesture-handler></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
