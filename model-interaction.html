@@ -16,7 +16,7 @@
 <body style="margin: 0px; overflow: hidden;">
     <a-scene arjs="debugUIEnabled: false; sourceType: webcam;" embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene">
         <a-assets>
-            <a-asset-item id="random_shapes" src="https://github.com/maheshkancha/arproject/tree/master/models/random_shapes.gltf"></a-asset-item>
+            <a-asset-item id="random_shapes" src="./models/random_shapes.gltf"></a-asset-item>
         </a-assets>
 
         <a-marker shapeinteractionhandler preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="hiroMarker">
