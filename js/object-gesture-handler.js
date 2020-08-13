@@ -2,19 +2,12 @@
 
 AFRAME.registerComponent("gesture-handler", {
   schema: {
-    enabled: { default: true },
-    rotationFactor: { default: 5 },
-    minScale: { default: 0.3 },
-    maxScale: { default: 8 },
+    enabled: { default: true }
   },
 
   init: function () {
-    this.handleScale = this.handleScale.bind(this);
-    this.handleRotation = this.handleRotation.bind(this);
-
+    this.changeColor = this.changeColor.bind(this);
     this.isVisible = false;
-    this.initialScale = this.el.object3D.scale.clone();
-    this.scaleFactor = 1;
 
     this.el.sceneEl.addEventListener("markerFound", (e) => {
       this.isVisible = true;
@@ -23,69 +16,37 @@ AFRAME.registerComponent("gesture-handler", {
     this.el.sceneEl.addEventListener("markerLost", (e) => {
       this.isVisible = false;
     });
-
-    // const randomColor = Math.floor(Math.random()*16777215).toString(16);
-
-    // this.redMaterial = new THREE.MeshPhongMaterial({
-    //   color: 'blue',
-    //   flatShading: true,
-    // });
   },
 
   update: function () {
     if (this.data.enabled) {
-      this.el.sceneEl.addEventListener("onefingermove", this.handleRotation);
-      this.el.sceneEl.addEventListener("twofingermove", this.handleScale);
+      this.el.sceneEl.addEventListener("onefingermove", this.changeColor);
     } else {
-      this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
-      this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
+      this.el.sceneEl.removeEventListener("onefingermove", this.changeColor);
     }
   },
 
   remove: function () {
-    this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
-    this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
+    this.el.sceneEl.removeEventListener("onefingermove", this.changeColor);
   },
 
-  handleRotation: function (event) {
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+  changeColor: function (event) {
+    if (this.isVisible) {
+      const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
-    this.redMaterial = new THREE.MeshPhongMaterial({
-      color: `#${randomColor}`,
-      flatShading: true,
-    });
-
-    const object = this.el.getObject3D('mesh');
-    console.log('OBject:', object)
-    const material = this.redMaterial;
-    if (object) {
-      object.traverse(function (node) {
-        if (node.isMesh) node.material = material;
+      this.redMaterial = new THREE.MeshPhongMaterial({
+        color: `#${randomColor}`,
+        flatShading: true,
       });
+
+      const object = this.el.getObject3D('mesh');
+
+      const material = this.redMaterial;
+      if (object) {
+        object.traverse(function (node) {
+          if (node.isMesh) node.material = material;
+        });
+      }
     }
-
-
-    if (this.isVisible) {
-      this.el.object3D.rotation.y +=
-        event.detail.positionChange.x * this.data.rotationFactor;
-      this.el.object3D.rotation.x +=
-        event.detail.positionChange.y * this.data.rotationFactor;
-    }
-  },
-
-  handleScale: function (event) {
-    if (this.isVisible) {
-      this.scaleFactor *=
-        1 + event.detail.spreadChange / event.detail.startSpread;
-
-      this.scaleFactor = Math.min(
-        Math.max(this.scaleFactor, this.data.minScale),
-        this.data.maxScale
-      );
-
-      this.el.object3D.scale.x = this.scaleFactor * this.initialScale.x;
-      this.el.object3D.scale.y = this.scaleFactor * this.initialScale.y;
-      this.el.object3D.scale.z = this.scaleFactor * this.initialScale.z;
-    }
-  },
+  }
 });
