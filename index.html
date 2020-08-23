@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Index</title>
+    <script>
+        showMessage = () => {
+            alert('This is Mahesh reporting.')
+        }
+
+        inputChange = e => {
+            console.log(e.target.value)
+        }
+    </script>
+</head>
+
+<body>
+    <input value="Mahesh" onchange="inputChange(e)" />
+    <button id="btnClickMe" onclick="showMessage()">Click Me</button>
+</body>
+
+</html>
