@@ -18,7 +18,7 @@
             <a-asset-item id="house" src="/models/house.gltf"></a-asset-item>
         </a-assets> -->
 
-        <a-marker preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="hiroMarker">
+        <a-marker type="pattern" url="./data/pattern-B.patt" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="hiroMarker">
             <a-entity id="house-model" gltf-model="url(./models/house.gltf)" position="0 0 0" scale="0.12 0.12 0.12" class="clickable" gesture-handler></a-entity>
         </a-marker>
 
