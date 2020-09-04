@@ -14,7 +14,6 @@
         <h1>Berkadia AR Apps</h1>
     </div>
     <div class="app-container">
-        <!-- <div style="background-image: url('./assets/marker_based.jpg'); background-repeat: no-repeat; background-size: cover;"> -->
         <div>
             <a href="https://maheshkancha.github.io/arproject/housear.html" target="_blank">
                 <img src="./assets/marker_based.jpg" alt="marker based" style="width: 250px; height: 150px;" />
@@ -35,9 +34,8 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"
-        integrity="sha512-kgjZw3xjgSUDy9lTU085y+UCVPz3lhxAtdOVkcO4O2dKl2VSBcNsQ9uMg/sXIM4SoOmCiYfyFO/n1/3GSXZtSg=="
-        crossorigin="anonymous"></script>
+    <script src="./js/three.js"></script>
+    <script src="./js/OrbitControls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     <script>
         const scene = new THREE.Scene();
@@ -61,6 +59,10 @@
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
 
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.minDistance = 1;
+        controls.maxDistance = 1000;
+
         const geometry = new THREE.BoxGeometry(1, 1, 1);
         const material = new THREE.MeshLambertMaterial({ color: 0xF7F7F7 });
         let mesh
@@ -83,6 +85,7 @@
 
         const render = function () {
             requestAnimationFrame(render);
+            controls.update();
             renderer.render(scene, camera);
         }
 
