@@ -20,7 +20,8 @@ h1 {
     margin: 0;
     display: inline-block;
     font-size: 3em;
-    border: 10px solid black;
+    border: 10px solid #fff;
+    color: #fff;
     padding: 10px 20px;
 }
 
@@ -36,7 +37,7 @@ h1 {
     display: inline-block;
     width: 250px;
     height: 195px;
-    margin: 0 75px;
+    margin: 0 25px;
     border-radius: 5px;
     box-shadow: -8px 8px 3px gray;
     cursor: pointer;

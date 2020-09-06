@@ -27,6 +27,12 @@
             </a>
         </div>
         <div>
+            <a href="https://maheshkancha.github.io/arproject/mapar.html" target="_blank">
+                <img src="./assets/map_thumbnail.png" alt="marker based" style="width: 250px; height: 150px;" />
+                <div>Property Locality</div>
+            </a>
+        </div>
+        <div>
             <a href="https://maheshkancha.github.io/arproject/location-text.html" target="_blank">
                 <img src="./assets/location_based.jpg" alt="marker based" style="width: 250px; height: 150px;" />
                 <div>Location Based AR</div>
@@ -44,7 +50,8 @@
         camera.position.z = 5;
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setClearColor("#e5e5e5");
+        // renderer.setClearColor("#e5e5e5");
+        renderer.setClearColor("#777777");
         renderer.setSize(window.innerWidth, window.innerHeight);
 
         document.body.appendChild(renderer.domElement);
@@ -64,7 +71,7 @@
         controls.maxDistance = 1000;
 
         const geometry = new THREE.BoxGeometry(1, 1, 1);
-        const material = new THREE.MeshLambertMaterial({ color: 0xF7F7F7 });
+        const material = new THREE.MeshLambertMaterial({ color: 0x4A00FE });
         let mesh
 
         for (let i = 0; i < 50; i++) {
