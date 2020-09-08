@@ -2,22 +2,3 @@ body {
     margin: 0px;
     overflow: hidden;
 }
-
-.legend {
-    position: absolute;
-    bottom: 0;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.legend > div {
-    display: inline-flex;
-    background-color: white;
-}
-
-.legend > div > div {
-    align-self: center;
-    margin: 0 20px;
-    font-size: 18px;
-}
