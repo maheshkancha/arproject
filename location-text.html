@@ -17,11 +17,14 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-      <a-text
-        value="The Sky View on Rent/Month @ $1,500"
-        look-at="[gps-camera]"
-        gps-entity-place="latitude: 17.3266821; longitude: 78.4358385;"
-      ></a-text>
+    <a-entity
+      id="property_details"
+      gltf-model="url(./models/property_details.gltf)"
+      scale="0.3 0.3 0.3"
+      position="0 0 -8"
+      look-at="[gps-camera]"
+      gps-entity-place="latitude: 17.3266821; longitude: 78.4358385;"
+    ></a-entity>
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
   </body>
