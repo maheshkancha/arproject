@@ -38,7 +38,32 @@
                 <div>Location Based AR</div>
             </a>
         </div>
+        <div onclick="showQRCode()">
+            <a>
+                <img src="./assets/qrcode.png" alt="marker based" style="width: 250px; height: 150px;" />
+                <div>QR Code</div>
+            </a>
+        </div>
+        <!-- <div id="qrcodewrapper"> -->
+            <div class="qrbackdrop" onclick="hideQRCode()">
+                <div class="qrcontent">
+                    <img src="./assets/qrcode.png" alt="marker based" />
+                </div>
+            </div>
+        <!-- </div> -->
     </div>
+    <script type="text/javascript">
+        function showQRCode() {
+            const qrcodeContainer = document.querySelector('.qrbackdrop');
+            console.log('test', qrcodeContainer)
+            qrcodeContainer.style.setProperty('visibility', 'visible');
+        }
+
+        function hideQRCode() {
+            const qrcodeContainer = document.querySelector('.qrbackdrop');
+            qrcodeContainer.style.setProperty('visibility', 'hidden');
+        }
+    </script>
 
     <script src="./js/three.js"></script>
     <script src="./js/OrbitControls.js"></script>
@@ -50,7 +75,6 @@
         camera.position.z = 5;
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
-        // renderer.setClearColor("#e5e5e5");
         renderer.setClearColor("#777777");
         renderer.setSize(window.innerWidth, window.innerHeight);
 

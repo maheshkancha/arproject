@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #bbb;
+    background-color: #fff;
 }
 
 canvas {
@@ -26,9 +26,9 @@ h1 {
 }
 
 .app-container {
-    height: 200px;
+    height: 445px;
     position: absolute;
-    top: 55%;
+    top: 60%;
     padding: 20px;
 }
 
@@ -37,7 +37,7 @@ h1 {
     display: inline-block;
     width: 250px;
     height: 195px;
-    margin: 0 25px;
+    margin: 15px 25px;
     border-radius: 5px;
     box-shadow: -8px 8px 3px gray;
     cursor: pointer;
@@ -52,4 +52,33 @@ a > div {
     padding: 3px;
     margin: 5px 10px;
     text-align: center;
+}
+
+.qrbackdrop {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #777;
+
+    border: none !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    cursor: default !important;
+}
+
+.qrcontent {
+    position: absolute;
+    opacity: 1;
+    left: 40%;
+    top: 20%;
+}
+
+.qrcontent > img {
+    width: 300px;
+    height: 300px;
 }
