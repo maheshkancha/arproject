@@ -15,8 +15,8 @@
 <body>
     <a-scene arjs="debugUIEnabled: false; sourceType: webcam;" embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene">
 
-        <a-marker type="pattern" url="./data/pattern-B.patt" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="hiroMarker">
-            <a-entity id="newyorkMap" gltf-model="url(./models/newyork_map_glb.glb)" position="0 0 0" scale="0.12 0.12 0.12" class="clickable" gesture-handler></a-entity>
+        <a-marker type="pattern" url="./data/pattern-B.patt" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="customBMarker">
+            <a-entity id="newyorkMap" gltf-model="url(./models/newyork_map_glb.glb)" position="0 0 0" scale="0.1 0.1 0.1" class="clickable" gesture-handler></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
