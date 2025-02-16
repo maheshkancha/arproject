@@ -11,3 +11,5 @@ cube_ar.html implementation uses the ar.js with three.js to render 3d object ove
 5. location-text.html: Location based AR example to render text at particular Lat and Lng.
 6. model-interaction.html: Test file to understand the interaction with basic models.
 7. object-interaction.html: Test file to understand the interaction with basic models.
+
+GitHub Page Url: https://maheshkancha.github.io/arproject/
